@@ -1,0 +1,41 @@
+### Users create (signup)
+POST http://localhost:3000/users.json
+Content-Type: application/json
+
+{
+  "name": "Test name",
+  "email": "test@test.com",
+  "password": "password",
+  "password_confirmation": "password"
+}
+
+### Sessions create (login)
+POST http://localhost:3000/sessions.json
+Content-Type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "password"
+}
+
+
+### Dogs Create
+POST http://localhost:3000/dogs
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NTc3NTk5MDV9.k5PuQwGth9_c-8B_H_XBwYZba06uVxEyBPYHafozhEk
+Content-Type: application/json
+
+{
+  "name": "Spot",
+  "age": 4,
+  "breed": "Dalmation"
+}
+### Dogs Update
+PATCH http://localhost:3000/dogs/
+Content-Type: application/json
+
+{
+  "age": 2
+}
+### Dogs Delete
+DELETE http://localhost:3000/dogs/
+
