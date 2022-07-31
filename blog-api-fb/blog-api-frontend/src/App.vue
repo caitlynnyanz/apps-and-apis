@@ -6,6 +6,10 @@
     |
     <router-link to="/test">Test</router-link>
     |
+    <router-link to="/posts">Posts</router-link>
+    |
+    <router-link to="/new">New Post</router-link>
+    |
     <router-link to="/signup">Signup</router-link>
     |
     <router-link to="/login">Login</router-link>
