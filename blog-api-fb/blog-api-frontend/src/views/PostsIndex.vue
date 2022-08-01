@@ -27,6 +27,7 @@ export default {
       <img v-bind:src="post.image" />
       <h2>{{ post.title }}</h2>
       <p>{{ post.body }}</p>
+      <a v-bind:href="`/posts/${post.id}`">Read more</a>
     </div>
   </div>
 </template>
