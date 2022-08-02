@@ -25,6 +25,9 @@ export default {
     <h1>{{ post.title }}</h1>
     <img v-bind:src="post.image" />
     <p>{{ post.body }}</p>
+    <div>
+      <a v-bind:href="`/posts/${post.id}/edit`">Edit Post</a>
+    </div>
     <a href="/posts">Back to posts</a>
   </div>
 </template>
