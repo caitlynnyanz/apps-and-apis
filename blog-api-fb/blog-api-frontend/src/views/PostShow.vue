@@ -28,21 +28,24 @@ export default {
 </script>
 
 <template>
-  <div>
-    <img v-bind:src="post.image" />
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.body }}</p>
+  <div class="container">
     <div>
-      <a class="btn btn-dark" v-bind:href="`/posts/${post.id}/edit`">Edit Post</a>
+      <img v-bind:src="post.image" />
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.body }}</p>
+      <div>
+        <a class="btn btn-dark" v-bind:href="`/posts/${post.id}/edit`">Edit Post</a>
+      </div>
+      <div>
+        <button class="btn btn-light" v-on:click="destroyPost()">Delete Post</button>
+      </div>
+      <a class="btn btn-primary" href="/posts">Back to posts</a>
     </div>
-    <div>
-      <button class="btn btn-light" v-on:click="destroyPost()">Delete Post</button>
-    </div>
-    <a class="btn btn-primary" href="/posts">Back to posts</a>
   </div>
 </template>
 
 <style scoped>
-body {
+.container {
+  background-color: rgb(239, 239, 239);
 }
 </style>

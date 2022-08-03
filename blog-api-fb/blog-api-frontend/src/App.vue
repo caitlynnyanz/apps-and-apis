@@ -38,7 +38,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/new">New Post</a>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" v-if="!isLoggedIn">
             <a
               class="nav-link dropdown-toggle"
               href="#"
@@ -52,10 +52,15 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="/login">Login</a></li>
               <li><a class="dropdown-item" href="/signup">Sign Up</a></li>
-              <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="/logout">Logout</a></li>
+              <!-- <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="/logout">Logout</a></li> -->
             </ul>
           </li>
+
+          <li class="nav-item" v-if="isLoggedIn">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+
           <!-- <li class="nav-item">
             <a class="nav-link disabled">Disabled</a>
           </li> -->
@@ -71,6 +76,21 @@
     <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  data: function () {
+    return {
+      isLoggedIn: !!localStorage.jwt,
+    };
+  },
+  watch: {
+    $route: function () {
+      this.isLoggedIn = !!localStorage.jwt;
+    },
+  },
+};
+</script>
 
 <style>
 body {

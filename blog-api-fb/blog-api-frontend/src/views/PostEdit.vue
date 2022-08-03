@@ -44,15 +44,15 @@ export default {
       </ul>
       <div>
         Title:
-        <input type="text" v-model="post.title" />
+        <input class="form-control" type="text" v-model="post.title" />
       </div>
       <div>
         Body:
-        <input type="text" v-model="post.body" />
+        <input class="form-control" type="text" v-model="post.body" />
       </div>
       <div>
         Image:
-        <input type="text" v-model="post.image" />
+        <input class="form-control" type="text" v-model="post.image" />
       </div>
       <input class="btn btn-dark" type="submit" value="Submit Post" />
     </form>
