@@ -54,7 +54,7 @@ export default {
         Image:
         <input type="text" v-model="post.image" />
       </div>
-      <input type="submit" value="Submit Post" />
+      <input class="btn btn-dark" type="submit" value="Submit Post" />
     </form>
   </div>
 </template>

@@ -29,17 +29,20 @@ export default {
 
 <template>
   <div>
-    <h1>{{ post.title }}</h1>
     <img v-bind:src="post.image" />
+    <h2>{{ post.title }}</h2>
     <p>{{ post.body }}</p>
     <div>
-      <a v-bind:href="`/posts/${post.id}/edit`">Edit Post</a>
+      <a class="btn btn-dark" v-bind:href="`/posts/${post.id}/edit`">Edit Post</a>
     </div>
     <div>
-      <button v-on:click="destroyPost()">Delete Post</button>
+      <button class="btn btn-light" v-on:click="destroyPost()">Delete Post</button>
     </div>
-    <a href="/posts">Back to posts</a>
+    <a class="btn btn-primary" href="/posts">Back to posts</a>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+body {
+}
+</style>

@@ -33,21 +33,32 @@ export default {
       </ul>
       <div>
         <label>Name:</label>
-        <input type="text" v-model="newUserParams.name" />
+        <input class="form-control" type="text" v-model="newUserParams.name" />
+        <small class="text-danger" v-if="newUserParams.name">{{ 20 - newUserParams.name.length }}</small>
       </div>
       <div>
         <label>Email:</label>
-        <input type="email" v-model="newUserParams.email" />
+        <input class="form-control" type="email" v-model="newUserParams.email" />
       </div>
       <div>
         <label>Password:</label>
-        <input type="password" v-model="newUserParams.password" />
+        <input class="form-control" type="password" v-model="newUserParams.password" />
+        <small class="text-danger" v-if="newUserParams.password && newUserParams.password.length < 6">
+          Must be at least 6 characters.
+        </small>
+        <br />
+        <small class="text-danger" v-if="newUserParams.password && newUserParams.password.length > 20">
+          Must be less than 20 characters.
+        </small>
       </div>
       <div>
         <label>Password confirmation:</label>
-        <input type="password" v-model="newUserParams.password_confirmation" />
+        <input class="form-control" type="password" v-model="newUserParams.password_confirmation" />
+        <small class="text-danger" v-if="newUserParams.password !== newUserParams.password_confirmation">
+          Must match password.
+        </small>
       </div>
-      <input type="submit" value="Submit" />
+      <input class="btn btn-dark" type="submit" value="Submit" />
     </form>
   </div>
 </template>

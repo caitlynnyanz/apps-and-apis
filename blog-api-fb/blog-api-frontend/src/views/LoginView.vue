@@ -37,13 +37,13 @@ export default {
       </ul>
       <div>
         <label>Email:</label>
-        <input type="email" v-model="newSessionParams.email" />
+        <input class="form-control" type="email" v-model="newSessionParams.email" />
       </div>
       <div>
         <label>Password:</label>
-        <input type="password" v-model="newSessionParams.password" />
+        <input class="form-control" type="password" v-model="newSessionParams.password" />
       </div>
-      <input type="submit" value="Submit" />
+      <input class="btn btn-dark" type="submit" value="Submit" />
     </form>
   </div>
 </template>

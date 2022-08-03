@@ -35,17 +35,17 @@ export default {
       </ul>
       <div>
         Title:
-        <input type="text" v-model="newPostParams.title" />
+        <input class="form-control" type="text" v-model="newPostParams.title" />
       </div>
       <div>
         Body:
-        <input type="text" v-model="newPostParams.body" />
+        <input class="form-control" type="text" v-model="newPostParams.body" />
       </div>
       <div>
         Image:
-        <input type="text" v-model="newPostParams.image" />
+        <input class="form-control" type="text" v-model="newPostParams.image" />
       </div>
-      <input type="submit" value="Submit Post" />
+      <input class="btn btn-dark" type="submit" value="Submit Post" />
     </form>
   </div>
 </template>
