@@ -1,31 +1,50 @@
+<script>
+import NoteToolbar from "./components/NoteToolbar.vue";
+import NoteContainer from "./components/NoteContainer.vue";
+
+export default {
+  data: function () {
+    return {};
+  },
+  components: {
+    NoteToolbar,
+    NoteContainer,
+  },
+};
+</script>
+
 <template>
-  <nav>
-    <router-link to="/">Home</router-link>
-    |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <div id="app">
+    <NoteToolbar />
+    <NoteContainer />
+  </div>
 </template>
 
 <style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* LAYOUT */
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-nav {
-  padding: 30px;
+/* COLORS */
+* {
+  color: #454545;
+  background-color: #fafaf8;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+/* TYPOGRAPHY */
+body {
+  font-family: sans-serif;
 }
 </style>
