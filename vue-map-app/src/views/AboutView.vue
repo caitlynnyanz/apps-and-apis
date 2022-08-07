@@ -1,5 +1,57 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>This is a map page</h1>
   </div>
+  <div id="map"></div>
 </template>
+
+<script>
+/* global mapboxgl */
+export default {
+  data: function () {
+    return {};
+  },
+  created: function () {},
+  mounted: function () {
+    this.showMap();
+  },
+  methods: {
+    showMap: function () {
+      // TO MAKE THE MAP APPEAR YOU MUST
+      // ADD YOUR ACCESS TOKEN FROM
+      // https://account.mapbox.com
+      mapboxgl.accessToken = process.env.VUE_APP_MY_MAP_KEY;
+      const map = new mapboxgl.Map({
+        container: "map", // container ID
+        style: "mapbox://styles/mapbox/streets-v11",
+        center: [12.550343, 55.665957],
+        zoom: 8,
+        projection: "globe", // display the map as a 3D globe
+      });
+
+      map.on("style.load", () => {
+        map.setFog({}); // Set the default atmosphere style
+        // Create a default Marker and add it to the map.
+        const marker1 = new mapboxgl.Marker().setLngLat([12.554729, 55.70651]).addTo(map);
+
+        // Create a default Marker, colored black, rotated 45 degrees.
+        const marker2 = new mapboxgl.Marker({ color: "black", rotation: 45 })
+          .setLngLat([12.65147, 55.608166])
+          .addTo(map);
+      });
+    },
+  },
+};
+</script>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+}
+#map {
+  position: absolute;
+  height: 500px;
+  width: 500px;
+  margin-left: 50px;
+}
+</style>
