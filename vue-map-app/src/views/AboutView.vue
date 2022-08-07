@@ -24,7 +24,7 @@ export default {
       const map = new mapboxgl.Map({
         container: "map", // container ID
         style: "mapbox://styles/mapbox/streets-v11",
-        center: [12.550343, 55.665957],
+        center: [-122.431297, 37.773972],
         zoom: 8,
         projection: "globe", // display the map as a 3D globe
       });
@@ -32,12 +32,21 @@ export default {
       map.on("style.load", () => {
         map.setFog({}); // Set the default atmosphere style
         // Create a default Marker and add it to the map.
-        const marker1 = new mapboxgl.Marker().setLngLat([12.554729, 55.70651]).addTo(map);
+
+        // create the popup
+        const popup = new mapboxgl.Popup({ offset: 25 }).setText("This is a popup.");
+
+        const marker1 = new mapboxgl.Marker()
+          .setLngLat([-122.431297, 37.773972])
+          .setPopup(popup) // sets a popup on this marker
+          .addTo(map);
 
         // Create a default Marker, colored black, rotated 45 degrees.
         const marker2 = new mapboxgl.Marker({ color: "black", rotation: 45 })
-          .setLngLat([12.65147, 55.608166])
+          .setLngLat([-122.75, 37.98])
+
           .addTo(map);
+        console.log(marker1, marker2);
       });
     },
   },
