@@ -5,15 +5,23 @@ export default {
     return {
       message: "Welcome to Vue.js!",
       posts: [],
+      articles: [],
     };
   },
   created: function () {
     this.getPostsData();
+    this.getNewsData();
   },
   methods: {
     getPostsData: function () {
       axios.get("https://jsonplaceholder.typicode.com/posts").then((response) => {
         console.log(response.data);
+        this.posts = response.data;
+      });
+    },
+    getNewsData: function () {
+      axios.get("http://localhost:3000/newapi_headlines").then((response) => {
+        console.log("news api", response.data);
         this.posts = response.data;
       });
     },
